@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Graphics Unit and Etchie: Final Report}
+\author{Dakota Fisher}
+\date{May 1, 2014}
+
+\begin{document}
+\maketitle
+
+\section{Introduction/Results}
+The graphics unit, implemented on the DE0 Development and Education board, performs the following tasks as specified in the proposal:
+\begin{itemize}
+	\item Connect to a VGA monitor
+	\item Display microcontroller (Arduino) input
+\end{itemize}
+The microcontroller uses this graphics unit and some potentiometers connected to it to emulate "Etch-a-Sketch" using two knobs for X and Y locations and three other knobs for an additional coloring feature (with the knobs corresponding to red, green, and blue).
+
+\section{Approach}
+This project was approached in pieces:
+\begin{itemize}
+	\item Get any VGA output
+	\item Get switch input to SRAM
+	\item Get SRAM to VGA output
+	\item Change switch input with GPIO input
+	\item Write demo application on microcontroller using only Serial input/output
+	\item Change demo application to use Serial input to GPIO output
+	\item Wire up potentiometers
+	\item Change demo application to use analog input to GPIO output
+\end{itemize}
+
+\section{Data Transmission Specification}
+Data transmission between the microcontroller (transmitter) and FPGA (receiver) is as follows:
+\begin{itemize}
+	\item Definitions \begin{itemize} 
+			\item The two devices (a receiver and a transmitter) are connected with a data port of n wires, with a single wire for each of a clock signal and a ready signal. All signals are written by the transmitter except the ready signal.
+			\item The previous statement is known by both devices ahead of time, including the value of n.
+			\item HIGH means 5V above ground (which is assumed common and implicit)
+			\item A HIGH pulse means a HIGH signal for an agreed-upon time and then a LOW signal for the same agreed time
+			\item Each byte is an ordered sequence of bits of size n (in our case 6)
+			\item A zero byte is a byte containing only zeroes.
+			\item Each packet is an ordered sequence of bits of size m (in our case 32)
+		\end{itemize}
+	\item A byte is sent by placing the byte on the data port, then sending a HIGH pulse on the clock signal
+	\item A packet is sent by sending enough bytes to have sent m bits of information, big-endian, and cutting off any excess bits from the most-significant bits, and then a zero byte.
+	\item If m bits are sent as per the previous statement, but a zero byte is not the next byte, then the packet is ignored as well as any further bytes sent until a zero byte is sent.
+	\item If the receiver is ready to receive data, it shall place the ready signal HIGH
+	\item The interpretation of the packet is agreed upon and understood ahead of time.
+		In short, the device uses n-bit bytes (in our specific case 6), sends them in big-endian packets of m (32) bits (trimming extra MSB) with a transmitted clock, which is then acknowledged by the receiver
+\end{itemize}
+
+\section{VGA Short Description}
+The critical VGA inputs and outputs are as follows and implemented on the graphics unit as:
+\begin{enumerate}
+	\item Each pixel follows a pixel clock with period p (f = 50MHz)
+	\item Each line has four stages repeating in order with their own times expressed as multiples of p: Sync, Front Porch, Data (800/640 pixels), Back Porch
+	\item During the Data stage, pixels are sent every p for each column on the current row from left to right using three analog signals corresponding to red, green and blue on the current row (if there is a current row of pixels, see 5).
+	\item During all other stages, the analog signals are low.
+	\item During the Sync stage, HSync is low. During all other stages, HSync is high.
+	\item Statements 2-5 are true for each frame, replacing HSync with VSync, row with frame and p with the time it takes to transmit each line.
+\end{enumerate}
+An image showing this is below: \\
+\includegraphics[width=\textwidth]{VGA_signal_format.png}
+
+\section{Discussion - Obstacles}
+Some problems and bugs had to be solved to complete the project
+\begin{description}
+	\item[How does VGA timing work?] Documentation on the subject is sorely lacking. The documentation which is claimed to be the definitive complete standard is a 112-page IBM document which seems to be about a VGA chip and not VGA timing itself.
+	\item[VGA flip-flops] When placing logic going directly to VGA output, the signal was rejected. Only after placing a layer of flip-flops between the two was I able to get any response from the VGA monitor.
+	\item[Verilog missing sizes] When missing port declarations in Verilog, it will often create an implicit net of the wrong size, causing much confusion.
+	\item[Documentation mismatched] In the DE0 user manual, it refers to GPIO1\_D, but in a file provided to help avoid doing manual pin assignment, it was named GPIO\_1.
+\end{description}
+
+\section{Discussion - Avoided Pitfalls}
+Thankfully, I was able to avoid some nasty pitfalls with some foresight
+\begin{itemize}
+	\item The DE0 SRAM can only read or write at any one time, but this is never explicitly stated. Had I not realized this ahead of time, I could have spent some time banging my head against the wall trying to resolve Verilog compilation errors.
+	\item The data transmission scheme works for the most part perfectly, but it isn't guaranteed that it starts in a state that you need. Without an initializing NOP signal, this cannot be avoided. I foresaw this as a potential difficulty, and implemented the NOP signal in my design immediately instead of seeing this flaw too late to fix it.
+	\item I originally thought to use the potentiometers in voltage dividers with other resistors. Thinking more carefully about my design, I realized that the potentiometers worked as their own voltage divider if using all three leads correctly. Had I not realized this, I would have ended with too little precision from the potentiometer outputs.
+\end{itemize}
+
+\section{Discussion - Caveats}
+\begin{description}
+	\item[One pixel at a time] I can only write one pixel at a time since I'm using only a single SRAM chip.
+		Theoretically, I should sometimes be able to write adjacent pixels as well, but that introduces many more problems.
+		It may be possible to improve update speed by buffering input
+	\item[Waiting for read] I have to wait for a read to occur before another write can occur.
+	\item[Write-only buffer] I can't read out of the FPGA, I can only write to it, the data transmission scheme would need to be re-designed to permit reading.
+	\item[Small screen] Despite being able to output 800x600 pixels (and using the 800x600 standard) the display is scaled up by four so that it outputs 200x150. This can be fixed using SDRAM, but again, that introduces its own problems.
+\end{description}
+
+\section{Discussion - Lessons Learned}
+\begin{itemize}
+	\item Documentation is sometimes faulty
+	\item Documentation is an absolute necessity
+	\item Some design restrictions are subtle yet ultimately unavoidable
+	\item Modular design and testing are both very good design
+	\item Do not procrastinate, it will often be that even when you don't procrastinate you will still be rushed for time
+\end{itemize}
+
+\section{References}
+\begin{itemize}
+	\item IBM VGA document: http://www.mcamafia.de/pdf/ibm\_vgaxga\_trm2.pdf
+	\item Webpage containing VGA timing information as well as VGA image: http://www.javiervalcarce.eu/wiki/VGA\_Video\_Signal\_Format\_and\_Timing\_Specifications
+	\item DE0 Development and Education Board Manual (comes with DE0 board)
+\end{itemize}
+
+For convenience, code is kept in a file separate from this document.
+\end{document}

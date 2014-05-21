@@ -1,5 +1,5 @@
 Analysis & Synthesis report for graphics
-Wed May 21 09:46:43 2014
+Wed May 21 20:43:11 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -67,13 +67,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 21 09:46:43 2014           ;
+; Analysis & Synthesis Status        ; Successful - Wed May 21 20:43:11 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; graphics                                        ;
 ; Top-level Entity Name              ; avgai                                           ;
 ; Family                             ; Cyclone III                                     ;
-; Total logic elements               ; 244                                             ;
-;     Total combinational functions  ; 244                                             ;
+; Total logic elements               ; 245                                             ;
+;     Total combinational functions  ; 245                                             ;
 ;     Dedicated logic registers      ; 82                                              ;
 ; Total registers                    ; 82                                              ;
 ; Total pins                         ; 68                                              ;
@@ -233,16 +233,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 244       ;
+; Estimated Total logic elements              ; 245       ;
 ;                                             ;           ;
-; Total combinational functions               ; 244       ;
+; Total combinational functions               ; 245       ;
 ; Logic element usage by number of LUT inputs ;           ;
 ;     -- 4 input functions                    ; 113       ;
 ;     -- 3 input functions                    ; 37        ;
-;     -- <=2 input functions                  ; 94        ;
+;     -- <=2 input functions                  ; 95        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 184       ;
+;     -- normal mode                          ; 185       ;
 ;     -- arithmetic mode                      ; 60        ;
 ;                                             ;           ;
 ; Total registers                             ; 82        ;
@@ -254,7 +254,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 78        ;
-; Total fan-out                               ; 1859      ;
+; Total fan-out                               ; 1861      ;
 ; Average fan-out                             ; 3.43      ;
 +---------------------------------------------+-----------+
 
@@ -264,7 +264,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                   ; Library Name ;
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+--------------+
-; |avgai                                         ; 244 (45)          ; 82 (1)       ; 360000      ; 0            ; 0       ; 0         ; 68   ; 0            ; |avgai                                                                                                                ; work         ;
+; |avgai                                         ; 245 (45)          ; 82 (1)       ; 360000      ; 0            ; 0       ; 0         ; 68   ; 0            ; |avgai                                                                                                                ; work         ;
 ;    |SRAM:comb_61|                              ; 36 (13)           ; 3 (1)        ; 360000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|SRAM:comb_61                                                                                                   ; work         ;
 ;       |altsyncram:mem_rtl_0|                   ; 4 (0)             ; 2 (0)        ; 360000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|SRAM:comb_61|altsyncram:mem_rtl_0                                                                              ; work         ;
 ;          |altsyncram_l3e1:auto_generated|      ; 4 (0)             ; 2 (2)        ; 360000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|SRAM:comb_61|altsyncram:mem_rtl_0|altsyncram_l3e1:auto_generated                                               ; work         ;
@@ -277,7 +277,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |comm_int:comb_12|                          ; 80 (0)            ; 51 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|comm_int:comb_12                                                                                               ; work         ;
 ;       |comm_receiver:comb_4|                   ; 64 (64)           ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|comm_int:comb_12|comm_receiver:comb_4                                                                          ; work         ;
 ;       |debounce:comb_3|                        ; 16 (16)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|comm_int:comb_12|debounce:comb_3                                                                               ; work         ;
-;    |vgaControl:comb_11|                        ; 83 (28)           ; 27 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|vgaControl:comb_11                                                                                             ; work         ;
+;    |vgaControl:comb_11|                        ; 84 (29)           ; 27 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|vgaControl:comb_11                                                                                             ; work         ;
 ;       |vgaRotatingCounter:h|                   ; 26 (4)            ; 13 (3)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|vgaControl:comb_11|vgaRotatingCounter:h                                                                        ; work         ;
 ;          |counterModulo:c|                     ; 22 (22)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|vgaControl:comb_11|vgaRotatingCounter:h|counterModulo:c                                                        ; work         ;
 ;       |vgaRotatingCounter:v|                   ; 29 (2)            ; 12 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |avgai|vgaControl:comb_11|vgaRotatingCounter:v                                                                        ; work         ;
@@ -336,6 +336,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |avgai|comm_int:comb_12|comm_receiver:comb_4|received[0] ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |avgai|comm_int:comb_12|debounce:comb_3|debTimer[6]      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |avgai|SRAM_X[6]                                         ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |avgai|vgaControl:comb_11|vgaRotatingCounter:v|modulo[0] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 
@@ -668,7 +669,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -678,7 +679,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed May 21 09:46:35 2014
+    Info: Processing started: Wed May 21 20:43:07 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off avgai -c graphics
 Info (12021): Found 1 design units, including 1 entities, in source file sram.v
     Info (12023): Found entity 1: SRAM
@@ -711,7 +712,6 @@ Warning (10230): Verilog HDL assignment warning at avgai.v(46): truncated value 
 Warning (10230): Verilog HDL assignment warning at avgai.v(51): truncated value with size 32 to match size of target (12)
 Warning (10034): Output port "LEDG[6]" at avgai.v(21) has no driver
 Info (12128): Elaborating entity "vgaControl" for hierarchy "vgaControl:comb_11"
-Warning (10230): Verilog HDL assignment warning at vgaControl.v(95): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at vgaControl.v(96): truncated value with size 32 to match size of target (10)
 Info (12128): Elaborating entity "vgaRotatingCounter" for hierarchy "vgaControl:comb_11|vgaRotatingCounter:h"
 Warning (10230): Verilog HDL assignment warning at vgaControl.v(56): truncated value with size 32 to match size of target (10)
@@ -851,17 +851,17 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]"
     Warning (15610): No output dependent on input pin "SW[8]"
     Warning (15610): No output dependent on input pin "SW[9]"
-Info (21057): Implemented 369 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 370 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
     Info (21059): Implemented 24 output pins
     Info (21060): Implemented 32 bidirectional pins
-    Info (21061): Implemented 253 logic cells
+    Info (21061): Implemented 254 logic cells
     Info (21064): Implemented 48 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 86 warnings
-    Info: Peak virtual memory: 475 megabytes
-    Info: Processing ended: Wed May 21 09:46:43 2014
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:05
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 85 warnings
+    Info: Peak virtual memory: 476 megabytes
+    Info: Processing ended: Wed May 21 20:43:11 2014
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+

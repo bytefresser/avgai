@@ -1,0 +1,11 @@
+DE0 = Arduino
+GPIO_1[13] = Pin 13
+GPIO_1[11] = Pin 12
+GPIO_1[9] = Pin 11
+GPIO_1[7] = Pin 10
+GPIO_1[5] = Pin 9
+GPIO_1[3] = Pin 8
+GPIO_1[1] = Pin 7
+GPIO_1[0] = Pin 6
+5V = 5V
+0V = 0V

@@ -1,3 +1,29 @@
 avgai is A VGA Implementation.
 
-Current release is "not well-done", next release will have version number.
+The important file is "vgaControl.v", which contains the VGA controller. It
+outputs the VSYNC and HSYNC signals for the VGA port, as well as indicates which
+pixel should be output to the VGA display on the next clock cycle.
+
+The inputs and outputs are:
+ - clk: The input clock, currently assumed to be 50MHz
+ - reset_: An active low "reset" signal
+ - VGA_VS, VGA_HS: The VSync and HSync signals for VGA output, can be output
+   directly
+ - need: whether a pixel will be needed next clock cycle. If this is low, pixel
+   output should also be low.
+ - vneed, hneed: if a pixel is needed next cycle, will indicate the vertical
+   and horizontal location of that pixels (from top/left to bottom/right)
+
+The rest of the verilog files set it up to buffer some input from GPIO so that this can
+be hooked up to an Arduino, as well as some example code for the Arduino
+itself. The setup is that the Arduino sends packets one "word" each, which are
+then put back together on the FPGA and act as "commands". Example code is in
+"etchie.ino", which uses the analog pins as "knobs" and acts as an
+Etch-a-Sketch with color.
+
+I built this with a DE0 board and an Arduino Uno. To set it up with this
+configuration, match pins on the Arduino Uno to the pins on the DE0 board as in
+the file "PINS" and upload the relevant files to each. You may need to
+reference the DE0 User Manual in doing so.
+
+Current release is v0.999... != 1, codename "Eh"

@@ -92,8 +92,9 @@ module vgaControl(input clk, reset_,
 
 	assign need = vStage == 2 && ((hStage == 2 && hCount != hc-1)
 										|| (hStage == 1 && hCount == hb-1));
-	assign hNeed = need ? hCount+1 : 0;
-	assign vNeed = need ? vCount : 0;
+
+	assign hNeed = hStage == 2 ? hCount+1 : 0;
+	assign vNeed = vCount;
 	
 	assign hClock = clk;
 	vgaRotatingCounter #(ha, hb, hc, hd) h(hClock, 1, hStage, hCount, vClock);

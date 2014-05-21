@@ -78,16 +78,16 @@ hNeed[6] <= hNeed.DB_MAX_OUTPUT_PORT_TYPE
 hNeed[7] <= hNeed.DB_MAX_OUTPUT_PORT_TYPE
 hNeed[8] <= hNeed.DB_MAX_OUTPUT_PORT_TYPE
 hNeed[9] <= hNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[0] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[1] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[2] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[3] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[4] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[5] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[6] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[7] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[8] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
-vNeed[9] <= vNeed.DB_MAX_OUTPUT_PORT_TYPE
+vNeed[0] <= vgaRotatingCounter:v.port3
+vNeed[1] <= vgaRotatingCounter:v.port3
+vNeed[2] <= vgaRotatingCounter:v.port3
+vNeed[3] <= vgaRotatingCounter:v.port3
+vNeed[4] <= vgaRotatingCounter:v.port3
+vNeed[5] <= vgaRotatingCounter:v.port3
+vNeed[6] <= vgaRotatingCounter:v.port3
+vNeed[7] <= vgaRotatingCounter:v.port3
+vNeed[8] <= vgaRotatingCounter:v.port3
+vNeed[9] <= vgaRotatingCounter:v.port3
 
 
 |avgai|vgaControl:comb_11|vgaRotatingCounter:h
