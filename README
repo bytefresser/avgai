@@ -14,11 +14,11 @@ The inputs and outputs are:
  - vneed, hneed: if a pixel is needed next cycle, will indicate the vertical
    and horizontal location of that pixels (from top/left to bottom/right)
 
-The rest of the verilog files set it up to buffer some input from GPIO so that this can
-be hooked up to an Arduino, as well as some example code for the Arduino
-itself. The setup is that the Arduino sends packets one "word" each, which are
-then put back together on the FPGA and act as "commands". Example code is in
-"etchie.ino", which uses the analog pins as "knobs" and acts as an
+The rest of the verilog files set it up to buffer some input from GPIO so that
+this can be hooked up to an Arduino, as well as some example code for the
+Arduino itself. The setup is that the Arduino sends packets one "word" each,
+which are then put back together on the FPGA and act as "commands". Example
+code is in "etchie.ino", which uses the analog pins as "knobs" and acts as an
 Etch-a-Sketch with color.
 
 I built this with a DE0 board and an Arduino Uno. To set it up with this
