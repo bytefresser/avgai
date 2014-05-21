@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -7.425
+TNS   : -1371.188
+
+Type  : Slow 1200mV 85C Model Setup 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : -3.619
+TNS   : -38.535
+
+Type  : Slow 1200mV 85C Model Setup 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : -1.849
+TNS   : -41.685
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -0.070
+TNS   : -0.070
+
+Type  : Slow 1200mV 85C Model Hold 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : 0.344
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : 0.359
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -450.408
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : -1.000
+TNS   : -40.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : -1.000
+TNS   : -12.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -6.570
+TNS   : -1211.844
+
+Type  : Slow 1200mV 0C Model Setup 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : -3.204
+TNS   : -33.857
+
+Type  : Slow 1200mV 0C Model Setup 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : -1.596
+TNS   : -33.570
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -0.051
+TNS   : -0.226
+
+Type  : Slow 1200mV 0C Model Hold 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : 0.299
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -450.408
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : -1.000
+TNS   : -40.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : -1.000
+TNS   : -12.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -3.784
+TNS   : -680.562
+
+Type  : Fast 1200mV 0C Model Setup 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : -1.590
+TNS   : -16.252
+
+Type  : Fast 1200mV 0C Model Setup 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : -0.581
+TNS   : -6.604
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -0.166
+TNS   : -0.893
+
+Type  : Fast 1200mV 0C Model Hold 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -249.435
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comm_int:comb_12|debounce:comb_3|debounced'
+Slack : -1.000
+TNS   : -40.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'vgaControl:comb_11|vgaRotatingCounter:h|outClk'
+Slack : -1.000
+TNS   : -12.000
+
+------------------------------------------------------------
