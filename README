@@ -25,5 +25,3 @@ I built this with a DE0 board and an Arduino Uno. To set it up with this
 configuration, match pins on the Arduino Uno to the pins on the DE0 board as in
 the file "PINS" and upload the relevant files to each. You may need to
 reference the DE0 User Manual in doing so.
-
-Current release is v0.999... != 1, codename "Eh"
